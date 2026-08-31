@@ -6,7 +6,7 @@
 
     <title>PRanjana.</title>
 
-    <link rel="stylesheet" href="{{ asset('css/agency.css') }}">
+    <link rel="stylesheet" href="/css/agency.css">
 </head>
 
 <body>
