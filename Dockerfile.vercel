@@ -1,0 +1,29 @@
+FROM dunglas/frankenphp:php8.5
+
+WORKDIR /app
+
+RUN install-php-extensions \
+    pdo_sqlite \
+    opcache
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY . /app
+
+RUN composer install \
+    --no-dev \
+    --optimize-autoloader \
+    --no-interaction
+
+RUN php artisan config:clear \
+    && php artisan route:clear \
+    && php artisan view:clear
+
+RUN chown -R www-data:www-data /app/storage /app/bootstrap/cache
+
+ENV SERVER_NAME=:80
+ENV SERVER_ROOT=/app/public
+
+EXPOSE 80
+
+CMD ["frankenphp", "run", "--config", "/etc/frankenphp/Caddyfile"]
