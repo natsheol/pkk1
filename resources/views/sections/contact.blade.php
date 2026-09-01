@@ -14,7 +14,7 @@
         stronger connections, and lasting impact.
     </p>
 
-    <a href="mailto:hello@pranjanaagency.com" class="button">
+    <a href="mailto:pranjanaagency@gmail.com4" class="button">
         Start a Conversation →
     </a>
 
